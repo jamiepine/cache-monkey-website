@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
     <h1>Convert, browse and clear cached images and files.</h1>
+    <p class="info">
+      <b>Images you see online are never deleted immediately, unless you delete them of course.</b>
+      <br>Most desktop apps have a cache directory, not all provide the tools to clear it. CacheMonkey not only lets you purge cache files, but browse and filter through them too.
+    </p>
     <h3>Download for Windows and Mac</h3>
 
     <ul class="download-buttons">
@@ -108,5 +112,9 @@ a {
     transform: translateY(-2px);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.096);
   }
+}
+.info {
+  max-width: 700px;
+  margin: auto;
 }
 </style>
