@@ -1,56 +1,80 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
+    <h1>Convert, browse and clear cached images and files.</h1>
+    <h3>Download for Windows and Mac</h3>
+
+    <ul class="download-buttons">
       <li>
-        <a href="https://vuejs.org" target="_blank">Core Docs</a>
+        <a :href="windows">
+          <div class="download-button">
+            <fa class="icon" :icon="['fab','windows']"/>
+          </div>
+        </a>
       </li>
       <li>
-        <a href="https://forum.vuejs.org" target="_blank">Forum</a>
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank">Community Chat</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank">Twitter</a>
-      </li>
-      <br>
-      <li>
-        <a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a href="http://router.vuejs.org/" target="_blank">vue-router</a>
-      </li>
-      <li>
-        <a href="http://vuex.vuejs.org/" target="_blank">vuex</a>
-      </li>
-      <li>
-        <a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a>
-      </li>
-      <li>
-        <a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a>
+        <a :href="mac">
+          <div class="download-button">
+            <fa class="icon" :size="30" :icon="['fab','apple']"/>
+          </div>
+        </a>
       </li>
     </ul>
+    <ul>
+      <li>
+        <a href="http://twitter.com/jamiepine" target="_blank">Twitter</a>
+      </li>
+      <li>
+        <a href="http://youtube.com/jamiepine" target="_blank">YouTube</a>
+      </li>
+      <li>
+        <a href="http://youtube.com/jamiepinelive" target="_blank">Twitch</a>
+      </li>
+      <li>
+        <a href="https://github.com/jamiepine" target="_blank">Github</a>
+      </li>
+    </ul>
+    <img width="1000px" src="../assets/img.jpg">
+    <img width="1000px" src="../assets/img1.jpg">
+    <img width="1000px" src="../assets/img2.jpg">
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "HelloWorld",
+  name: "Home",
+  mounted() {
+    axios
+      .get(
+        "https://api.github.com/repos/jamiepine/cache-monkey/releases/latest"
+      )
+      .then(response => {
+        this.windows = response.data.assets.filter(
+          asset => asset.content_type == "application/x-msdownload"
+        )[0].browser_download_url;
+        this.mac = response.data.assets.filter(
+          asset =>
+            asset.content_type == "application/octet-stream" &&
+            asset.name.includes(".dmg")
+        )[0].browser_download_url;
+      })
+      .catch(error => {
+        this.windows =
+          "https://github.com/jamiepine/cache-monkey/releases/latest";
+        this.mac = "https://github.com/jamiepine/cache-monkey/releases/latest";
+      });
+  },
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      windows: "",
+      mac: ""
     };
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 h1,
 h2 {
   font-weight: normal;
@@ -64,6 +88,25 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #b47439;
+}
+.download-buttons {
+  margin-bottom: 30px;
+}
+.download-button {
+  padding: 24px 33px;
+  border-radius: 20px;
+  color: #5f5f5f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.096);
+  transition: 200ms;
+  cursor: pointer;
+  .icon {
+    font-size: 40px;
+  }
+  &:hover {
+    color: #1d1d1d;
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.096);
+  }
 }
 </style>

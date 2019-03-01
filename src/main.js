@@ -8,8 +8,9 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEnvelope, faMagic, faCog } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
-  faLinkedIn,
-  faTwitch
+  faTwitch,
+  faWindows,
+  faApple
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -18,12 +19,20 @@ library.add({
   faTwitch,
   faEnvelope,
   faMagic,
-  faCog
+  faCog,
+  faWindows,
+  faApple
 });
 
-Vue.component("icon", FontAwesomeIcon);
+Vue.component("fa", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
+
+import VueAnalytics from "vue-analytics";
+Vue.use(VueAnalytics, {
+  id: "UA-135463886-1",
+  router
+});
 
 /* eslint-disable no-new */
 new Vue({
