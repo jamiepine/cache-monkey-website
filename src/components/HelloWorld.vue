@@ -9,7 +9,7 @@
 
     <ul class="download-buttons">
       <li>
-        <a :href="windows">
+        <a @click="showmessage = true" :href="windows">
           <div class="download-button">
             <fa class="icon" :icon="['fab','windows']"/>
           </div>
@@ -23,6 +23,10 @@
         </a>
       </li>
     </ul>
+    <div class="info-message" v-if="showmessage">
+      <h3>Please note:</h3>
+      <p>If Windows defender pops up to warn you that the program is from an unidentified developer, I wouldn't worry. Just click "More Info", then "Install Anyway". We're still waiting for the code signature certififcate to be approved. Our code is open source on Github, if you want to verifiy it's all safe!</p>
+    </div>
     <ul>
       <li>
         <a href="http://twitter.com/jamiepine" target="_blank">Twitter</a>
@@ -71,7 +75,8 @@ export default {
   data() {
     return {
       windows: "",
-      mac: ""
+      mac: "",
+      showmessage: false
     };
   }
 };
@@ -93,6 +98,16 @@ li {
 }
 a {
   color: #b47439;
+}
+.info-message {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #36863a;
+  max-width: 760px;
+  margin: auto;
+  background: #50b364;
+  color: #fff;
+  margin-bottom: 20px;
 }
 .download-buttons {
   margin-bottom: 30px;
