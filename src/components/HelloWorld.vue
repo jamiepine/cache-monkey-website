@@ -35,7 +35,7 @@
         <a href="http://youtube.com/jamiepine" target="_blank">YouTube</a>
       </li>
       <li>
-        <a href="http://youtube.com/jamiepinelive" target="_blank">Twitch</a>
+        <a href="http://twitch.tv/jamiepinelive" target="_blank">Twitch</a>
       </li>
       <li>
         <a href="https://github.com/jamiepine/cache-monkey" target="_blank">Github</a>
