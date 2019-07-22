@@ -18,7 +18,7 @@
       <li>
         <a :href="mac">
           <div class="download-button">
-            <fa class="icon" :size="30" :icon="['fab','apple']"/>
+            <fa class="icon" :icon="['fab','apple']"/>
           </div>
         </a>
       </li>
@@ -69,7 +69,7 @@ export default {
             asset.name.includes(".dmg")
         )[0].browser_download_url;
       })
-      .catch(error => {
+      .catch(() => {
         this.windows =
           "https://github.com/jamiepine/cache-monkey/releases/latest";
         this.mac = "https://github.com/jamiepine/cache-monkey/releases/latest";
