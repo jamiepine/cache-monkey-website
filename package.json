@@ -16,7 +16,7 @@
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.2",
     "vue-analytics": "^5.16.2"
   },
   "devDependencies": {
