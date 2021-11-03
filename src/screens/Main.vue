@@ -41,7 +41,7 @@
         <a href="https://github.com/jamiepine/cache-monkey" target="_blank">Github</a>
       </li>
       <li>
-        <a href="http://www.somsubhra.com/github-release-stats/?username=jamiepine&repository=cache-monkey" target="_blank">Release Stats</a>
+        <a href="https://tooomm.github.io/github-release-stats/?username=jamiepine&repository=cache-monkey" target="_blank">Release Stats</a>
       </li>
     </ul>
     <img width="1000px" src="../assets/img.jpg">
